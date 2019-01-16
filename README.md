@@ -29,22 +29,22 @@ This function searches the ‘collection’ given to find name of all the busine
 
 Interface.py – Has the function implementations
 testData.json – This is the json file whose data is inserted in MongoDB. The structure of one record of this file is
- < Key value pair>: - 
-{ 
-'type': 'business', 
-'business_id': (encrypted business id), 
-'name': (business name), 
-'neighborhoods': [(hood names)], 
-'full_address': (localized address), 
-'city': (city), 
-'state': (state), 
-'latitude': latitude, 
-'longitude': longitude, 
-'stars': (star rating, rounded to half-stars), 
-'review_count': review count, 
-'categories': [(localized category names)] 
-'open': True / False (corresponds to permanently closed, not business hours), 
-}
+ < Key value pair>: -   
+{   
+'type': 'business',  
+'business_id': (encrypted business id),  
+'name': (business name),  
+'neighborhoods': [(hood names)],  
+'full_address': (localized address),  
+'city': (city),  
+'state': (state),   
+'latitude': latitude,  
+'longitude': longitude,   
+'stars': (star rating, rounded to half-stars),  
+'review_count': review count,  
+'categories': [(localized category names)]  
+'open': True / False (corresponds to permanently closed, not business hours),  
+}  
 
  
 ## Example: - 
