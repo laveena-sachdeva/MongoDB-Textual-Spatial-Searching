@@ -1,0 +1,54 @@
+from pymongo import MongoClient
+import os
+import sys
+import json
+import math
+
+def FindBusinessBasedOnCity(cityToSearch, saveLocation1, collection):
+	#fetch all the documents with city == cityToSearch. This search is case insensitive
+        cursor = collection.find({"city": {"$regex":cityToSearch , "$options" : "i"}})
+		
+	#write output to the file
+	with open(saveLocation1,'w') as f:
+		for document in cursor:
+			f.write(document['name'].upper() + "$" + document['full_address'].upper() + "$" + document['city'].upper() + "$" + document['state'].upper() + "\n")
+
+
+def FindBusinessBasedOnLocation(categoriesToSearch, myLocation, maxDistance, saveLocation2, collection):
+	
+	#fetch all the documents from the collection
+	cursor = collection.find()
+	names = []
+	
+	#for each document, check whether it lies within the maxDistance and has the categories as required
+	for document in cursor:
+		d = distance_calculation(document['latitude'],document['longitude'],myLocation[0],myLocation[1])
+		categories = document["categories"]				
+
+		if(d <= maxDistance and (len(set(categories))==len(set(categoriesToSearch + categories)))):
+			names.append(document['name'].upper())
+
+	#write output to the file
+	with open(saveLocation2,'w') as f:
+		for name in names:
+			f.write(name + "\n")
+
+
+#function to calucate the distance
+def distance_calculation(lat2, lon2, lat1, lon1):
+	R = 3959.0
+	lat1 = float(lat1)
+	lat2 = float(lat2)
+
+	lon1 = float(lon1)
+	lon2 = float(lon2)
+
+	phi1 = math.radians(lat1)
+	phi2 = math.radians(lat2)
+	dphi = math.radians(lat2 - lat1)
+	dlambda = math.radians(lon2 - lon1)
+
+	a = math.sin(dphi/2)*math.sin(dphi/2) + math.cos(phi1)*math.cos(phi2)*math.sin(dlambda/2)*math.sin(dlambda/2)
+	c = 2*math.atan2(math.sqrt(a), math.sqrt(1-a))
+	
+	return (R*c)
