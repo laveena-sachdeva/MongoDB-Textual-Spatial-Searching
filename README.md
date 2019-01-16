@@ -3,9 +3,9 @@ The required task is to write two functions, which will perform some textual and
 
 ## Setup Instructions:
  
-1. Install MongoDB 2.6.11. 
+1. Install MongoDB 2.6.11.   
 
-2. Install pymongo to act as helper interface with MongoDB. 
+2. Install pymongo to act as helper interface with MongoDB.   
 
 3. Run the tester file to check everything runs and nothing fails. 
 
@@ -20,10 +20,10 @@ b. **FindBusinessBasedOnLocation**(categoriesToSearch, myLocation, maxDistance, 
 
 This function searches the ‘collection’ given to find name of all the business present in the ‘maxDistance’ from the given ‘myLocation’ that covers all the given categories (please use the distance algorithm given below) and save them to ‘saveLocation2’. Each line of the output file will contain the name of the business only. 
 
--- categoriesToSearch: a list of categories need to be covered 
--- ‘myLocation’ will be given with format [“40.3”, “51.6”]. 
--- maxDistance: the search distance 
--- saveLocation2: output location 
+-- categoriesToSearch: a list of categories need to be covered   
+-- ‘myLocation’ will be given with format [“40.3”,“51.6”]           
+-- maxDistance: the search distance   
+-- saveLocation2: output location   
 
 ## Files:
 
@@ -49,19 +49,20 @@ testData.json – This is the json file whose data is inserted in MongoDB. The s
  
 ## Example: - 
 {
-"city": "Ahwatukee", 
-"review_count": 3, 
-"name": "McDonald's", 
-"neighborhoods": [], 
-"type": "business", 
-"business_id": "LNdwp-9Isnd6xmBKUz4K_A", 
-"full_address": "10823 S 51st St\nAhwatukee, AZ 85044", 
-"state": "AZ", 
-"longitude": -111.975004, 
-"stars": 2.0, 
-"latitude": 33.348560900000003, 
-"open": true, 
-"categories": ["Burgers", "Fast Food", "Restaurants"]} 
+"city": "Ahwatukee",  
+"review_count":3,  
+"name": "McDonald's",
+"neighborhoods": [],  
+"type": "business",  
+"business_id": "LNdwp-9Isnd6xmBKUz4K_A",  
+"full_address": "10823 S 51st St\nAhwatukee, AZ 85044",  
+"state": "AZ",  
+"longitude": -111.975004,  
+"stars": 2.0,  
+"latitude": 33.348560900000003,  
+"open": true,  
+"categories": ["Burgers", "Fast Food", "Restaurants"]  
+}   
 
 tester.py – To test the functions FindBusinessBasedOnCity and FindBusinessBasedOnLocation
 
