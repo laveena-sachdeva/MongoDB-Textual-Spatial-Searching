@@ -27,7 +27,7 @@ This function searches the ‘collection’ given to find name of all the busine
 
 ## Files:
 
-Interface.py – Has the function implementations
+Interface.py – Has the function implementations  
 testData.json – This is the json file whose data is inserted in MongoDB. The structure of one record of this file is
  < Key value pair>: -   
 {   
